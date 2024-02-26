@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Welcome {{user.name}}!</title>{% endblock %}
+
+{% block content %}
+<div class="container-flex">
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="px-4 pt-5 pb-3 display-5 text-center">My Notes</div>
+        <div class="list-group list-group-flush px-2">
+          {% for note in user.notes %}
+          <li onclick="updateContent(`{{note.content}}`, '{{note.title}}', '{{note.note_id}}', '{{note.date.date()}}')" class="pt-2 pb-1 list-group-item ms-4 d-flex justify-content-between align-items-center">        
+            <h5>{{note.title}}</h5>
+            <button type="button" onClick="deleteNote({{note.note_id}})" class="mb-1 btn btn-danger pt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+              <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+              </svg>
+            </button>
+          </li>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-sm-7 mx-5 px-5">
+        <div class="px-4 pt-5 pb-3 display-5">Add new notes!</div>
+        <div class="row">
+          <form method ="POST">
+            <div class="pt-2">
+              <input type="hidden" id="note_id" name="note_id">
+              <label for="title"><h6>Title:</h6></label>
+              <input class="mx-2" type="title" id="title1" name="title" placeholder="Enter title"/>
+              <button class="btn btn-primary mb-1 mx-4 px-4" type="submit" name="sb_add">Add Note</button>
+              <button class="btn btn-success mb-1 mx-1 px-4" type="submit" name="sb_save">Save</button>
+              <span class="mx-5" id="note_date"></span>
+            </div>
+            <br>
+            <div class="d-flex">
+              <textarea name="content" placeholder="Start typing your note!" id="content" cols="130" rows="20"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}<title>J-Notes</title>{% endblock %}
+
+{% block content %}
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">Welcome to J-Notes!</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Quickly create notes to document daily tasks, record to-do-lists, brainstorm ideas, and much more. J-Notes will store your notes in our database and protect your information with industry-standard security protocols and authentication. Create an account to get started or log in to view your notes.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <a href="/login/"><button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Login</button></a>
+        <a href="/signup/"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Create Account</button></a>        
+      </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 35vh;">
+      <div class="container px-5">
+        <img src="../static/images/homeimg.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+</div>
+{% endblock %}
