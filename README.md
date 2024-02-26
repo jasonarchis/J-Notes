@@ -1,4 +1,4 @@
-# JNotes
+# J-Notes
 A web application to document notes, to-do lists, brainstorm ideas, and more. 
 Created using JavaScript, Python, Flask, Bootstrap, and SQLite.
 
